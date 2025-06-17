@@ -1,8 +1,12 @@
 
 import React from 'react';
 import { FileText } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Menu = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
+
   const handleViewMenu = (type: 'comida' | 'vinos') => {
     const pdfUrl = type === 'comida' ? '/carta-comida.pdf' : '/carta-vinos.pdf';
     window.open(pdfUrl, '_blank');
@@ -12,7 +16,12 @@ const Menu = () => {
     <section id="menu" className="py-20 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+          }`}
+        >
           <h2 className="font-serif text-4xl md:text-5xl font-light text-charcoal-900 mb-6 tracking-wide">
             CARTA
           </h2>
@@ -25,7 +34,12 @@ const Menu = () => {
         </div>
 
         {/* Menu Cards */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
+        <div 
+          ref={cardsRef}
+          className={`grid md:grid-cols-2 gap-12 mb-20 transition-all duration-1000 delay-300 ${
+            cardsVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+          }`}
+        >
           {/* Carta de Comida */}
           <div className="text-center group cursor-pointer" onClick={() => handleViewMenu('comida')}>
             <div className="relative overflow-hidden mb-6">

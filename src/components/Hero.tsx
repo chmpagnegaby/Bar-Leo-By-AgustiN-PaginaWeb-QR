@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const scrollToMenu = () => {
     const menuElement = document.getElementById('menu');
     if (menuElement) {
@@ -24,7 +27,12 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/60"></div>
       
       {/* Content */}
-      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+      <div 
+        ref={ref}
+        className={`relative z-10 text-center text-white max-w-4xl mx-auto px-4 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}
+      >
         <h1 className="font-serif text-6xl md:text-8xl font-light mb-8 tracking-wide">
           LINA
         </h1>

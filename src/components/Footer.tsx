@@ -1,10 +1,18 @@
 
 import React from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Footer = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <footer className="bg-charcoal-900 text-white py-12">
-      <div className="container mx-auto px-4 text-center">
+      <div 
+        ref={ref}
+        className={`container mx-auto px-4 text-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}
+      >
         <h3 className="font-serif text-2xl font-light mb-4 tracking-wide">
           LINA RESTAURANTE
         </h3>
