@@ -16,20 +16,31 @@ const Header = () => {
 
   return (
     <header
-      className={`h-40 fixed w-full z-50 transition-all duration-300 ${
+      className={`h-32 md:h-40 fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="relative h-full w-full">
+      <div className="flex items-center justify-between h-full px-4 md:px-10">
         {/* Imagen izquierda (mc) */}
-        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 w-20 h-20">
-          <img src={mc} style={{scale: '1.5', marginLeft: '10%'}} alt="MC" className="w-full h-full object-contain " />
+        <div className="w-16 h-16 md:w-20 md:h-20">
+          <img
+            src={mc}
+            alt="MC"
+            className="w-full h-full object-contain"
+          />
         </div>
 
         {/* Imagen central (logo) */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-150 w-20 h-20">
-          <img src={logo} alt="Logo" style={{scale: '2'}} className="w-full h-full object-contain" />
+        <div className="w-20 h-20 md:w-24 md:h-24">
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-full h-full object-contain"
+          />
         </div>
+
+        {/* Espacio a la derecha para balance visual (puedes usarlo para menú futuro) */}
+        <div className="w-16 h-16 md:w-20 md:h-20 invisible" />
       </div>
     </header>
   );
