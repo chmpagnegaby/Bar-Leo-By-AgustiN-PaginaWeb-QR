@@ -9,37 +9,37 @@ const Menu = () => {
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
 
   const handleViewMenu = (type: 'comida' | 'vinos') => {
-    const pdfUrl = type === 'comida' ? '/carta-comida.pdf' : '/carta-vinos.pdf';
+    const baseUrl = 'https://chmpagnegaby.github.io/Bar-Leo-By-AgustiN-PaginaWeb-QR/';
+    const pdfUrl = type === 'comida' ? `${baseUrl}carta-comida.pdf` : `${baseUrl}carta-vinos.pdf`;
     window.open(pdfUrl, '_blank');
   };
+
 
   return (
     <section id="menu" className="py-20 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+            }`}
         >
           <h2 className="font-serif text-4xl md:text-5xl font-light text-charcoal-900 mb-6 tracking-wide">
             CARTA
           </h2>
-          
+
           <div className="w-24 h-px bg-charcoal-400 mx-auto mb-8"></div>
-          
+
           <p className="text-charcoal-600 font-light tracking-wide">
             Descubre nuestra propuesta gastronómica
           </p>
         </div>
 
         {/* Menu Cards */}
-        <div 
+        <div
           ref={cardsRef}
-          className={`grid md:grid-cols-2 gap-12 mb-20 transition-all duration-1000 delay-300 ${
-            cardsVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-          }`}
+          className={`grid md:grid-cols-2 gap-12 mb-20 transition-all duration-1000 delay-300 ${cardsVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+            }`}
         >
           {/* Carta de Comida */}
           <div className="text-center group cursor-pointer" onClick={() => handleViewMenu('comida')}>
@@ -56,11 +56,11 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            
+
             <h3 className="font-serif text-2xl font-light mb-4 text-charcoal-900 tracking-wide">
               COMIDA
             </h3>
-            
+
             <p className="text-charcoal-600 font-light">
               Nuestra selección de platos principales
             </p>
@@ -81,11 +81,11 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            
+
             <h3 className="font-serif text-2xl font-light mb-4 text-charcoal-900 tracking-wide">
               VINOS
             </h3>
-            
+
             <p className="text-charcoal-600 font-light">
               Nuestra cuidada selección de vinos
             </p>
