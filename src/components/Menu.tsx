@@ -2,7 +2,8 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
+import vinos from '@/imagenes/vinos.jpg';
+import comidas from '@/imagenes/comida.jpg';
 const Menu = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
@@ -44,7 +45,7 @@ const Menu = () => {
           <div className="text-center group cursor-pointer" onClick={() => handleViewMenu('comida')}>
             <div className="relative overflow-hidden mb-6">
               <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src={comidas}
                 alt="Carta de Comida"
                 className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -69,7 +70,7 @@ const Menu = () => {
           <div className="text-center group cursor-pointer" onClick={() => handleViewMenu('vinos')}>
             <div className="relative overflow-hidden mb-6">
               <img
-                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src={vinos}
                 alt="Carta de Vinos"
                 className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
               />

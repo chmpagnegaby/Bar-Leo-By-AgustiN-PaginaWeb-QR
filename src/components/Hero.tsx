@@ -2,6 +2,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import fondo from '@/imagenes/fondo.jpg';
 
 const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -19,7 +20,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)'
+          backgroundImage: 'url(' + fondo + ')',
         }}
       />
       
@@ -33,15 +34,11 @@ const Hero = () => {
           isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`}
       >
-        <h1 className="font-serif text-6xl md:text-8xl font-light mb-8 tracking-wide">
-          LINA
+        <h1 className="font-serif text-6xl md:text-8xl font-light mb-[25%] tracking-wide">
+          BAR LEO BY AGUSTÍN
         </h1>
         
-        <div className="w-24 h-px bg-white mx-auto mb-8"></div>
         
-        <p className="text-lg md:text-xl font-light tracking-widest uppercase mb-12">
-          Restaurante
-        </p>
       </div>
       
       {/* Scroll Indicator */}
