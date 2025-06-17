@@ -5,10 +5,10 @@ import { Card } from '@/components/ui/card';
 import { FileText } from 'lucide-react';
 
 const Menu = () => {
-  const handleDownloadMenu = (type: 'comida' | 'vinos') => {
-    // Aquí se implementaría la descarga del PDF
-    console.log(`Descargando carta de ${type}`);
-    // En una implementación real, se abriría el PDF o se descargaría
+  const handleViewMenu = (type: 'comida' | 'vinos') => {
+    // Aquí abrirás tu PDF para visualización
+    const pdfUrl = type === 'comida' ? '/carta-comida.pdf' : '/carta-vinos.pdf';
+    window.open(pdfUrl, '_blank');
   };
 
   const featuredDishes = [
@@ -45,7 +45,7 @@ const Menu = () => {
           </p>
         </div>
 
-        {/* Menu Downloads */}
+        {/* Menu Cards */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
           <Card className="p-8 bg-gradient-to-br from-gold-50 to-gold-100 border-gold-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <div className="text-center">
@@ -59,10 +59,10 @@ const Menu = () => {
                 Explora nuestra exquisita selección de platos principales, entrantes y postres
               </p>
               <Button 
-                onClick={() => handleDownloadMenu('comida')}
+                onClick={() => handleViewMenu('comida')}
                 className="bg-gold-500 hover:bg-gold-600 text-white font-medium px-8 py-3 transition-all duration-300 transform hover:scale-105"
               >
-                Descargar Carta PDF
+                Ver Carta de Comida
               </Button>
             </div>
           </Card>
@@ -79,10 +79,10 @@ const Menu = () => {
                 Descubre nuestra cuidada selección de vinos nacionales e internacionales
               </p>
               <Button 
-                onClick={() => handleDownloadMenu('vinos')}
+                onClick={() => handleViewMenu('vinos')}
                 className="bg-charcoal-800 hover:bg-charcoal-900 text-white font-medium px-8 py-3 transition-all duration-300 transform hover:scale-105"
               >
-                Descargar Carta PDF
+                Ver Carta de Vinos
               </Button>
             </div>
           </Card>
